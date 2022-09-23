@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { LoginPageComponent } from '../login-page/login-page.component';
 
 @Component({
   selector: 'app-login-form',
@@ -20,6 +21,9 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {}
 
   onLogin() {
-    // A faire
+    const username = this.loginForm.controls.username.value!;
+    const password = this.loginForm.controls.password.value!;
+    let obj = {username,password}
+    this.login.emit(obj);
   }
 }

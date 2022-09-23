@@ -53,6 +53,7 @@ export class ChatPageComponent implements OnInit, OnDestroy {
         username: this.currentUsername,
         timestamp: Date.now(),
       });
+      this.messages$.subscribe(mess => this.messages = mess);
     }
     this.messageForm.reset();
   }
@@ -72,6 +73,6 @@ export class ChatPageComponent implements OnInit, OnDestroy {
   }
 
   onQuit() {
-    // A faire
+    this.loginService.logout();
   }
 }
